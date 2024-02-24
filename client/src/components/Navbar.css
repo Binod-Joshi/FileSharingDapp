@@ -1,0 +1,28 @@
+.Navbar {
+  position: sticky;
+  background-color: rgb(136, 159, 190);
+  display: flex;
+  justify-content: space-around; /* or space-between depending on your preference */
+  align-items: center;
+  height: 30px;
+  margin-bottom: 10px;
+}
+.accountNum{
+  font-size: large;
+}
+
+/* .Navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px; 
+}
+
+.Navbar a:hover {
+  background-color: #456789;
+  color: yellow;
+} */
+@media screen and (max-width:440px){
+  .accountNum{
+    font-size: xx-small;
+  }
+}
