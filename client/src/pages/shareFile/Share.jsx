@@ -121,10 +121,10 @@ const Share = ({ state, account }) => {
       </div>
       {success && <div className="alert">
         {success === "Request success." &&<Alert severity="success">{success}</Alert>}
-        {success === "Request failed" &&<Alert severity="error">{success}</Alert>}
+        {success === "Request failed." &&<Alert severity="error">{success}</Alert>}
       </div>}
       {(accessList && accessList?.length == 0 && length == 0) ? <div>
-        <p className="noFilesOrList">You haven't uploaded any files yet.</p>
+        <p className="noFilesOrList">You haven't given access to anyone yet.</p>
       </div>:""}
     </div>
   );

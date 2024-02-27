@@ -334,7 +334,7 @@ const GetFile = ({ state, account }) => {
       </Backdrop>
       </div>}
       {(filess && filess?.length == 0 && length == 0) ? <div>
-        <p className="noFilesOrList">You haven't uploaded any files yet.</p>
+        <p className="noFilesOrList">{ownFile?"You":"This address"} haven't uploaded any files yet.</p>
       </div>:""}
     </>
   );
