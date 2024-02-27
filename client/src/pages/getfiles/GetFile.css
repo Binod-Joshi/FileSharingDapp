@@ -18,7 +18,7 @@
 }
 .files {
   display: grid;
-  width: 100vw;
+  width: 98.5vw;
   /* height: 100vh; */
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -37,7 +37,7 @@
   justify-content: center;
   width: 85%;
   max-height: 35vh;
-  height: 90%;
+  height: 95%;
   cursor: pointer;
 }
 .data {
