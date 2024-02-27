@@ -1,14 +1,20 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
 import './Navbar.css'
 
-const Navbar = ({state,account}) => {
+const Navbar = ({account}) => {
+  const location = useLocation();
+
+  const isActiveLink = (path) => {
+    
+    return location.pathname === path;
+  }
   return (
     <>
       <div className='Navbar'>
-        <Link to="/">Home</Link>
-        <Link to="/getfiles">Files</Link>
-        <Link to="/sharefile">Share</Link>
+        <Link to="/" className={isActiveLink('/')?"active":""}>Home</Link>
+        <Link to="/getfiles" className={isActiveLink('/getfiles')?"active":""}>Files</Link>
+        <Link to="/sharefile" className={isActiveLink(`/sharefile`)?'active':""}>Share</Link>
       </div>
       <p className='accountNum'>Connected Account: {account}</p>
     </>

@@ -1,51 +1,124 @@
-.select{
-    margin: 10px 0;
+.select {
+  margin: 10px 0;
 }
-.selectOption{
-    background-color: #0069ff;
-    width: 100px;
-    height: 25px;
-    /* border: 2px solid black; */
-    border-radius: 5px;
+.selectOption {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: large;
+  background-color: #0069ff;
+  width: 115px;
+  height: 35px;
+  border-radius: 5px;
+  padding-left: 5px;
+  border: none;
 }
-.inputField{
-    height: 25px;
-    width: 260px;
-    padding-left: 10px;
+.inputField {
+  height: 30px;
+  width: 260px;
+  padding-left: 10px;
 }
-.files{
-    display: grid;
-    width: 100vw;
-    /* height: 100vh; */
-    grid-template-columns: 1fr 1fr 1fr;
-     
+.files {
+  display: grid;
+  width: 100vw;
+  /* height: 100vh; */
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.singleFile{
+.singleFile {
+  /* border: 2px solid white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32vw;
+  flex-direction: column;
+}
+.image {
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  max-height: 35vh;
+  height: 90%;
+  cursor: pointer;
+}
+.data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  margin-bottom: 5px;
+}
+.getData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.buttonDiv{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    width: 60%;
+    flex-direction: row;
+    margin-bottom: 5px;
+
+}
+.buttonDiv1{
+    border-radius: 10px;
+    height: 200px;
     width: 30vw;
-    flex-direction: column;
-}
-.image{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
-    max-height:35vh;
-    height: 70%;
-    cursor: pointer;
+    background-color: rgb(12 67 142);
+    z-index: 999;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
 }
-.data{
+.buttonDiv2{
+    margin-top: 20px;
+    gap: 20px;
     display: flex;
     align-items: center;
-    justify-content: center;  
-    flex-direction: column;
+    justify-content: space-between;
 }
-.getData{
+.center{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+}
+.noFilesOrList{
+  margin-top: 20px;
+  color: yellow;
+  font-size: larger;
 }
 
+@media screen and (max-width: 768px) {
+  .data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  .buttonDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+  .buttonDiv1{
+    width: 70vw;
+    top: 30%;
+}
+.inputField{
+  width: 235px;
+}
+}

@@ -26,7 +26,7 @@ function App() {
     const template = async () => {
       try {
         if (provider) {
-          const contractAddress = "0x40b7C05580883Da4Bf47E9d79f5E9Db04C8112BB";
+          const contractAddress = "0xaf0c7e51ED5F22715e290B7A1B47846d02BfA477";
           const contractAbi = FileShare.abi;
           //Metamask part
           //1. In order do transactions on sepolia testnet
@@ -67,7 +67,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar state={state} account={account}/>
+        <Navbar account={account}/>
         <Routes>
           <Route path="/" element={<UploadFile state={state} account={account}/>} />
           <Route path="/getfiles" element={<GetFile state={state} account={account} />} />

@@ -3,15 +3,25 @@ pragma solidity ^0.8.24;
 
 contract FileShare {
 
+    struct FileName{
+        string fileName;
+        string ipfsHash;
+    }
+
     struct Access {
         address user;
         bool access;
     }
 
-    mapping(address => string[]) value;
+    mapping(address => FileName[]) value;
     mapping(address => mapping(address => bool)) ownership;
     mapping(address => Access[]) accessList;
     mapping(address => mapping(address => bool)) previousData;
+
+    modifier onlyOwner(address _user) {
+        require(msg.sender == _user, "Only owner can perform this operation"); // arkha photo delete garanjya yo round ta par gari halalo ba
+        _;
+    }
 
     modifier checkForAllowFunction(address _user){
         require(!ownership[msg.sender][_user], "Already account is allowed");
@@ -28,8 +38,8 @@ contract FileShare {
         _;
     }
 
-    function add(address _user, string calldata url) external {
-        value[_user].push(url);
+    function add(address _user, string calldata _fileName, string calldata _ipfsHash) external {
+        value[_user].push(FileName(_fileName,_ipfsHash));
     }
 
     function allow(address _user) external checkForAllowFunction(_user) {
@@ -55,13 +65,30 @@ contract FileShare {
         }
     }
 
-    function display(address _user) external view hasPermission(_user) returns (string[] memory) {
+    function display(address _user) external view hasPermission(_user) returns (FileName[] memory) {
         return value[_user];
     }
 
     function shareList() external view returns (Access[] memory) {
         // to see the list of account whom we have given a access
         return accessList[msg.sender];
+    }
+
+    function deleteAllUrls(address _user) external onlyOwner(_user) { // mean photo
+        delete value[_user];
+    }
+
+    function deleteOneUrl(address _user, string memory _ipfsHash) external onlyOwner(_user){
+        for(uint i = 0; i<value[_user].length;i++){
+            if (keccak256(abi.encodePacked(value[_user][i].ipfsHash)) == keccak256(abi.encodePacked(_ipfsHash))){
+                delete value[_user][i];
+                for(uint j = i; j< value[_user].length -1;j++){
+                    value[_user][j] = value[_user][j+1];
+                }
+                value[_user].pop();
+                break;
+            }
+        }
     }
 }
 

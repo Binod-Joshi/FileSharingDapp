@@ -16,3 +16,19 @@
     flex-direction: column;
     gap: 5px;
 }
+.linkSize{
+    font-size: small;
+    margin-top: 5px;
+}
+.alert{
+    position: fixed;
+    top: 44px;
+    right: 4px;
+}
+
+@media screen and (max-width:768px) {
+    .linkSize{
+        margin-top: 5px;
+        font-size: 7px;
+    }
+}
