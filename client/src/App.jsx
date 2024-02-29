@@ -26,7 +26,7 @@ function App() {
     const template = async () => {
       try {
         if (provider) {
-          const contractAddress = "0xa3036F9107370f3445888541A3Ea4492A4863B0b";
+          const contractAddress = "0x3457a0AF30CCBC5E5732C5026b5E4C9Ac46E5c8f";
           const contractAbi = FileShare.abi;
           //Metamask part
           //1. In order do transactions on sepolia testnet
