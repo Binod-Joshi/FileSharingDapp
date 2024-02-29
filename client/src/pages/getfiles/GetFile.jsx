@@ -53,8 +53,8 @@ const GetFile = ({ state, account }) => {
         setLength(transactionsForGettingFile?.length);
         setFiless(transactionsForGettingFile);
       } catch (error) {
-        setSuccess(error.revert.args[0]);
-        console.log(error.revert.args[0]);
+        setSuccess(error?.revert?.args[0]);
+        console.log(error?.revert?.args[0]);
         console.log("failed to get files");
       }
     } else {

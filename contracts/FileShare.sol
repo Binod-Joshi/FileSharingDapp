@@ -34,7 +34,7 @@ contract FileShare {
     }
 
     modifier hasPermission(address _user){
-        require(msg.sender == _user || ownership[_user][msg.sender], "You haven't permission");
+        require(msg.sender == _user || ownership[msg.sender][_user], "You haven't permission");
         _;
     }
 

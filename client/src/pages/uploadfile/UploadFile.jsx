@@ -129,7 +129,7 @@ const UploadFile = ({ state, account }) => {
             <label style={{fontSize:"20px",}}>Choose File</label>
             <label
               htmlFor="file-upload"
-              style={{ fontSize: "30px", cursor: "pointer" }}
+              style={{ fontSize: "35px", cursor: "pointer" }}
             >
               <FaFileUpload />
             </label>

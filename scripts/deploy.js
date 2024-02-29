@@ -6,7 +6,7 @@ async function main(){
   const fileSharing = await fileSharingFactory.deploy();
   await fileSharing.waitForDeployment();
 
-  console.log(`The Deployed contract address is ${fileSharing.target}`); // 0x40b7C05580883Da4Bf47E9d79f5E9Db04C8112BB
+  console.log(`The Deployed contract address is ${fileSharing.target}`); // 0xa3036F9107370f3445888541A3Ea4492A4863B0b
 
   //now verifying process
   console.log(hre.network.config.chainId);

@@ -41,8 +41,17 @@ const Share = ({ state, account }) => {
       
       } catch (error) {
         setLoading(false);
-        setSuccess("Request failed.")
-        console.log(error);
+        console.log("jfid");
+        if(error?.revert?.args[0] == "Already account is disallow"){
+          setSuccess("Already disallowed account");
+        }else if(error?.revert?.args[0] == "Already account is allowed"){
+          setSuccess("Already allowed account");
+        }else{
+          setSuccess("Request failed.")
+          console.log(error);
+        }
+        console.log("jfid");
+
       }
     }else{
         setSuccess("Please enter a address.")
@@ -122,6 +131,8 @@ const Share = ({ state, account }) => {
       {success && <div className="alert">
         {success === "Request success." &&<Alert severity="success">{success}</Alert>}
         {success === "Request failed." &&<Alert severity="error">{success}</Alert>}
+        {success === "Already disallowed account" &&<Alert severity="info">{success}</Alert>}
+        {success === "Already allowed account" &&<Alert severity="info">{success}</Alert>}
       </div>}
       {(accessList && accessList?.length == 0 && length == 0) ? <div>
         <p className="noFilesOrList">You haven't given access to anyone yet.</p>
